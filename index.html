@@ -10,14 +10,37 @@
 
 <body>
 
-    <div id="app"></div>
-    {{mensagem}}
+    <div id="app">
+        {{mensagem}} <br>
+        ValorTotal: {{valorTotal}} <br>
+        Logado: {{logado}} <br>
+        hobbies: {{hobbies[0]}} <br>
+        Perfil: {{perfil.site}}, {{perfil.cursos[1].nome}}
+    </div>
+
     <script>
         //# para selecionar por id, . para selecionar por class
         const vm = new Vue({ //vm = view model
             el: '#app',
             data: { //guarda variaveis/atributos reativos
-                mensagem: 'Primeiro Template controlado pelo Vue'
+                mensagem: 'Primeiro Template controlado pelo Vue', // string
+                valorTotal: 111.111, // number
+                logado: true, // boolean
+                hobbies: ['Volei', 'natação', 'Video Games'], // array
+                perfil: {
+                    nome: 'Eduardo Lindos',
+                    site: 'edugostoso.com.br',
+                    idade: 32,
+                    cursos: [{
+                        nome: 'DSM',
+                        cargaHoraroa: '40 Horas',
+                    },
+                    {
+                        nome: 'Banco de Dados',
+                        cargaHoraroa: 'Horas infinitas',
+                    }
+                    ]
+                }
             }
         });
 
