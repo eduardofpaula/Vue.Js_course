@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Methods Vue.js</title>
+</head>
+<body>
+    
+    <div id="app">
+        Resultado conta é: {{somarSubtrair()}} <br>
+        Subtração de 4 - 2 é: {{subtrair()}} <br>
+        Multiplicacao de 137982 por 99 é: {{multiplicacao()}} <br>
+        Divisão de 8080 por 50 é: {{divisao()}} <br>
+        Raiz Quadrada de 21826 é: {{raizQuadrada()}} <br>
+        Funcionarios da Secc: {{funcSecc()}}
+    </div>
+
+    <script>
+        const numRaizQuadrada = 21826;
+
+        const funcSecc = ['Edu','Will','Jansen'];
+        const funcSeccSemColchetes = funcSecc.join(' - ');
+
+        const vm = new Vue({ //instancia methodo Vue
+            el: '#app',
+            data: {},
+            methods: {
+                somarSubtrair: function() { // função convencional
+                    return (3127838 + 47380) - (9999 + 7283);
+                },
+                subtrair: function() { //função anoninma, sem nome
+                    return 4 - 2;
+                },
+                multiplicacao: () => { //arrow function
+                    return 137982 * 99;
+                },
+                divisao: function() {
+                    return 8080 / 50
+                },
+                raizQuadrada: function() {
+                    return Math.sqrt(numRaizQuadrada)
+                },
+                funcSecc() {
+                    return funcSeccSemColchetes 
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>
