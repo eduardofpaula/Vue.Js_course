@@ -4,13 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./vue.js"></script>
+    <script src="../vue.js"></script>
     <title>V-bind</title>
 
     <style>
 
         .vermelho {
             color: red
+        }
+
+        .negrito {
+            font-weight: bold;
         }
 
     </style>
@@ -20,12 +24,12 @@
 <body>
 
     <div id="app">
-        <a v-bind:href="site"> SIte Vue.js</a>
-        <p v-bind:class="cor"> Entendendo a diretiva v-bind </p>
+        <a :href="site"> SIte Vue.js</a>
+        <p :class="cor" class="negrito"> Entendendo a diretiva v-bind </p>
 
-        <input type="text" v-bind:placeholder="instrucaoDePreenchimento" v-bind:value="valor">
+        <input type="text" :placeholder="instrucaoDePreenchimento" :value="valor">
 
-        <input type="checkbox" v-bind:checked="check">
+        <input type="checkbox" :checked="check">
     </div>
 
     <script>
