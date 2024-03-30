@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>V-bind</title>
+
+    <style>
+
+        .vermelho {
+            background-color: red
+        }
+
+        .negrito {
+            font-weight: bold;
+        }
+
+        .azul {
+            background-color:blue
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="app"> 
+        
+        <input type="text" v-on:keyup="imprimirTexto"> <!--forma comum de usar v-on -->
+        <button @click="mensagemAlerta">Botão da Alerta</button> <!--forma enxuta de usar v-on -->
+
+    </div>
+
+    <script>
+
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                
+            },
+            methods: {
+                imprimirTexto() {
+                    console.log("Teste")
+                },
+                mensagemAlerta() {
+                    alert('Mensagem de Alerta')
+                }
+
+            }
+        })
+
+
+    </script>
+
+</body>
+
+</html>
