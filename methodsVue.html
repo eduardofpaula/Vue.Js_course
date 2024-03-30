@@ -14,7 +14,8 @@
         Multiplicacao de 137982 por 99 é: {{multiplicacao()}} <br>
         Divisão de 8080 por 50 é: {{divisao()}} <br>
         Raiz Quadrada de 21826 é: {{raizQuadrada()}} <br>
-        Funcionarios da Secc: {{funcSecc()}}
+        Funcionarios da Secc: {{funcSecc()}} <br>
+        Numero Aleatorio: {{numeroAleatorio()}}
     </div>
 
     <script>
@@ -22,6 +23,8 @@
 
         const funcSecc = ['Edu','Will','Jansen'];
         const funcSeccSemColchetes = funcSecc.join(' - ');
+
+        // importante determinar uma forma padrão para usar funçoes, para que o código não fique confuso
 
         const vm = new Vue({ //instancia methodo Vue
             el: '#app',
@@ -42,8 +45,11 @@
                 raizQuadrada: function() {
                     return Math.sqrt(numRaizQuadrada)
                 },
-                funcSecc() {
+                funcSecc() { // forma enxuta de definir os pares de chave / valor
                     return funcSeccSemColchetes 
+                },
+                numeroAleatorio: function numeroAleatorio() { //demonstração de como funciona a forma enxuta, mas da forma convencional
+                    return Math.random();
                 }
             }
         })
