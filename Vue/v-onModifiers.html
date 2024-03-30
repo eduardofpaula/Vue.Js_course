@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>V-bind</title>
+
+    <style>
+
+        .verde {
+            background-color: green
+        }
+        
+        .branco {
+            background-color: white
+        }
+
+        .negrito {
+            font-weight: bold;
+        }
+
+        .azul {
+            background-color:blue
+        }
+
+        .vermelho {
+            background-color: red;
+        }
+
+        .borda {
+            border: 1px solid
+        }
+        
+        .div-principal {
+            width: 200px;
+            height: 200px;
+
+        }
+
+        .div-comum {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="app"> 
+
+        <a href="http://google.com.br"
+        target="_blank"
+        @click.prevent="prevenirComportamentoPadrao()">
+        Link para o Google
+        </a> <br>
+        Mensagem: {{ msg }}
+        <hr>
+        <button @click.once="executarUmaVez()">Botão Uma vez</button>
+        <p>Cliques: {{cliques}} </p>
+        <hr>
+        <form @submit.prevent.once="prevenirUmaVez()"><!--combinando modificadores-->
+            <button type="submit">
+                Enviar
+            </button>
+        </form>
+        <p>Formulario: {{formulario}} </p>
+        <hr>
+        <input @keyup="capturandoTeclas($event)"  type="text"> <!--é possivel determinar uma combinação de teclas para executar o comando capturando teclas-->
+        <p>Teclas: {{ teclas }} </p>        
+    </div>
+
+    <script>
+
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg: '',
+                cliques: 0, //inicia  a variavel
+                formulario: '',
+                teclas: ''
+            },
+            methods: {
+                prevenirComportamentoPadrao(event) { //prevent previni que aconteça o comportamento comum do evento click
+                    this.msg = "Comportamento Padrão Ativado"
+                },
+                executarUmaVez() { // once restringe para que o evento seja executado somente 1 vez
+                    this.cliques++
+                },
+                prevenirUmaVez() {
+                    this.formulario = 'Prevenindo o comportamento padrão'
+                },
+                capturandoTeclas(event) {
+                    this.teclas += event.key
+                }
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>
