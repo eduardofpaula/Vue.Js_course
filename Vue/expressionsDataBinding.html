@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>V-bind</title>
+
+    <style>
+
+        .vermelho {
+            background-color: red
+        }
+
+        .negrito {
+            font-weight: bold;
+        }
+
+        .azul {
+            background-color:blue
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="app"> 
+        Conta Simples: {{ (2 + 2) / 4 }} <br> <!-- possivel fazer operaçoes dentro do mustache-->
+        Tamanho da String 'mensagem' no objeto Data: {{ mensagem.length }} <br>
+        Começo da String 'mensagem' no Objeto Data: {{ mensagem.substr(0,3)}} <br>
+        <input :value="2 + 2" :class="teste ? 'vermelho' : estilo">
+    </div>
+
+    <script>
+
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                mensagem: 'Expressão',
+                estilo: 'azul',
+                teste: true
+            },
+            methods: {}
+        })
+
+
+    </script>
+
+</body>
+
+</html>
