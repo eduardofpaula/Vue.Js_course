@@ -30,7 +30,8 @@
     <div id="app"> 
         
         <input type="text" v-on:keyup="imprimirTexto('Enviando parametro', 5)"> <!--forma comum de usar v-on -->
-        <button @click="mensagemAlerta()">Botão da Alerta</button> <!--forma enxuta de usar v-on -->
+        <button @click="mensagemAlerta($event, 'teste', 100)">Botão da Alerta</button> <!--forma enxuta de usar v-on -->
+        <!--$event para manipular eventos, tem que estar na ordem correta-->
 
     </div>
 
@@ -42,13 +43,13 @@
                 xyz: true
             },
             methods: {
-                imprimirTexto(t, n,x) {
+                imprimirTexto(t, n,x) { // passando os parametros do $event
                     console.log(t)
                     console.log(n)
                     console.log(this.xyz)
                 },
-                mensagemAlerta() {
-                    alert('Mensagem de Alerta')
+                mensagemAlerta(evento, p1,p2) { 
+                    console.log(evento,p1,p2)
                 }
 
             }
