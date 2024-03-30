@@ -15,7 +15,7 @@
         Divisão de 8080 por 50 é: {{divisao()}} <br>
         Raiz Quadrada de 21826 é: {{raizQuadrada()}} <br>
         Funcionarios da Secc: {{funcSecc()}} <br>
-        Numero Aleatorio: {{numeroAleatorio()}}
+        Numero Aleatorio: {{numeroAleatorio()}} <br>
     </div>
 
     <script>
@@ -28,7 +28,11 @@
 
         const vm = new Vue({ //instancia methodo Vue
             el: '#app',
-            data: {},
+            data: {
+                n1:10,
+                n2:5,
+                // não colocar um atributo com o mesmo nome de função 
+            },
             methods: {
                 somarSubtrair: function() { // função convencional
                     return (3127838 + 47380) - (9999 + 7283);
@@ -37,7 +41,8 @@
                     return 4 - 2;
                 },
                 multiplicacao: () => { //arrow function
-                    return 137982 * 99;
+                    console.log('@@@@@@@@', this)
+                    return 137982 * 99; //this nao funciona nas arrow functions por conta do contexto léxico
                 },
                 divisao: function() {
                     return 8080 / 50
@@ -46,10 +51,19 @@
                     return Math.sqrt(numRaizQuadrada)
                 },
                 funcSecc() { // forma enxuta de definir os pares de chave / valor
+                    let x = () => { //this se comporta diferente dentro de arrow functions, ele é capturado do contexto em que a função é definida, não do contexto que ela é executada, ela se refere ao contexto global
+                        console.log('***********', this)
+                        return 'teste'
+                    }
+                    console.log(x());
+                    console.log(this);
                     return funcSeccSemColchetes 
                 },
                 numeroAleatorio: function numeroAleatorio() { //demonstração de como funciona a forma enxuta, mas da forma convencional
                     return Math.random();
+                },
+                dataElements: function() { //acessar atributos (usar o this.) data nas funçoes
+                    return this.n1 + this.n2;
                 }
             }
         })
