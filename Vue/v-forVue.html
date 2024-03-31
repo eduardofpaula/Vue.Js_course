@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>V-bind</title>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <ul>
+            <li v-for="(inine, chave) in inine">{{chave}} - {{inine}}</li> <!-- v-for faz repetição e percorre por toda a lista -->
+            <br>
+            <li v-for="(champsLol, chave) in champsLol" v-text="chave + ' - ' + champsLol"></li> <!-- outra maneira de implementar o v-for -->
+        </ul>
+        <hr>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>TITULO</th>
+                    <th>DESCRIÇÃO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(cursos, chave) in cursosFatec"> <!--destructuring assigment-->
+                    <td>{{chave}}</td>
+                    <td>{{cursos.nome}}</td>
+                    <td>{{cursos.descricao}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    </div>
+
+    <script>
+
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                inine: ['edu','ana','joao','andre','bea','naiara','lucas'],
+                champsLol: ['katarina', 'nasus', 'talia', 'xerath', 'corki','amumu'],
+                cursosFatec: {
+                    1000: {
+                        nome: 'Banco de Dados',
+                        descricao: "Técnologo em BD aprenda todos os JDBC's "
+                    },
+                    1001: {
+                        nome: 'DSM',
+                        descricao: 'Aprenda todas as linguagens'
+                    }
+                }
+            },
+            methods: {}
+        })
+
+    </script>
+
+</body>
+
+</html>
