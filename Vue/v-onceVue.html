@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>V-bind</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <p v-once>Saldo Inicial: {{ saldo }}</p> <!--executa somente a primeira vez-->
+        <p>Saldo atualizado: {{ saldo }} </p>
+        <input type="text" id="valor">
+        <button @click="creditar">Creditar</button>
+        <button @click="debitar">Debitar</button>
+
+    </div>
+
+    </div>
+
+    <script>
+
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                saldo: 1000
+            },
+            methods: {
+                creditar(){
+                    this.saldo += parseFloat(valor.value)
+                },
+                debitar(){
+                    this.saldo -= parseFloat(valor.value)
+                }
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>
