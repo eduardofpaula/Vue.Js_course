@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>V-bind</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <div v-html="elementosHTML">Texto de exemplo V-HTML</div> <!-- v-html sobrepoe se tiver algum conteudo dentro da tag HTML-->
+    </div>
+
+    </div>
+
+    <script>
+
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                elementosHTML: '<p>TEXTO V-HTML QUE VAI SER EXIBIDO</p><a href="https://Google.com.br">Site Google Exemplo</a>'
+            },
+            methods: {}
+        })
+
+    </script>
+
+</body>
+
+</html>
