@@ -13,6 +13,18 @@
     <div id="app">
 
         <ul>
+            <li v-for="c in comentarios">{{c.id}} - {{c.comentario}}</li>
+        </ul>
+        <button @click="adicionarElemento()">Adicionar</button>
+        <button @click="removerElemento()">Remover</button>
+        <button @click="modificarElemento()">Atualizar</button>
+        <hr>
+
+        <ul>
+            <li v-for="n in numero">{{n}}</li>
+        </ul>
+
+        <ul>
             <li v-for="(inine, chave) in inine">{{chave}} - {{inine}}</li>
             <!-- v-for faz repetição e percorre por toda a lista -->
             <br>
@@ -38,7 +50,8 @@
         </table>
         <hr>
         <ul>
-            <li v-for="p in publicacoes" style="border: solid 1px; margin-bottom:10px" :key="p.id"> <!-- v-for para percorrer pelo array e v-bind key para identificar cada um individualmente-->
+            <li v-for="p in publicacoes" style="border: solid 1px; margin-bottom:10px" :key="p.id">
+                <!-- v-for para percorrer pelo array e v-bind key para identificar cada um individualmente-->
                 <div>
                     {{ p.publicacao }}
                     <hr>
@@ -57,6 +70,7 @@
         const vm = new Vue({
             el: '#app',
             data: {
+                numero: 25,
                 inine: ['edu', 'ana', 'joao', 'andre', 'bea', 'naiara', 'lucas'],
                 champsLol: ['katarina', 'nasus', 'talia', 'xerath', 'corki', 'amumu'],
                 cursosFatec: {
@@ -84,6 +98,19 @@
                     misturado[2] = this.publicacoes[1]
 
                     this.publicacoes = misturado
+                },
+                adicionarElemento() { //push metodo nativo do JS para ser reativo em adicionar um novo elemento
+                    this.comentarios.push({ id: 4, comentario: 'Novo comentário' })
+                },
+                removerElemento() { //remover elemento do array
+                    this.comentarios.pop()
+                },
+                modificarElemento() { //metodo para modificar valores do array
+                    this.$set(
+                        this.comentarios, //array
+                        1,  //chave
+                        { id: 2, comentario: 'Comentário 2 atualizado' } //novo valor
+                    )
                 }
             }
         })
