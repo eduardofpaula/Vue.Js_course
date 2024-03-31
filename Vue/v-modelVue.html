@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>V-Model</title>
+
+</head>
+
+<body>
+
+    <div id="app">
+        {{ paciente }} <br><br>
+        <input type="text" :value="paciente" @keyup="paciente = $event.target.value"> <br><br> <!--exemplo de como v-model funciona-->
+        <input type="text" v-model="paciente"><!--exemplo de v-model com sintaxe inchuta-->
+    </div>
+
+    <script>
+
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                paciente: 'Eduardo'
+            },
+            methods: {}
+        })
+    </script>não e
+
+</body>
+
+</html>
