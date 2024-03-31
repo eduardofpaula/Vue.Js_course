@@ -16,6 +16,7 @@
 <body>
 
     <div id="app">
+
         <!-- v-if simples -->
         <button @click="exibirSaldo = !exibirSaldo">
             <span v-if="!exibirSaldo" >Exibir Saldo</span>
@@ -37,8 +38,6 @@
         <p v-else-if="nota >= 5 && nota < 7">Aluno em Recuperação</p>
         <p v-else-if="nota >= 0 && nota < 5">Aluno Reprovado</p>
         <p v-else>A nota informada é invalida</p>
-
-        
         
     </div>
 
@@ -62,7 +61,6 @@
                 }
             }
         })
-
 
     </script>
 

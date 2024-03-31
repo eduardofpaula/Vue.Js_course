@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>V-bind</title>
+
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="app"> <!-- vshow serve para exibir ou não algum conteudo, usa como display-->
+        <p @mouseover="exibirtextoAjuda = true" @mouseout="exibirtextoAjuda = false">Exemplo de Texto V-Show</p>
+        <div v-show="exibirtextoAjuda">
+            <h3>TITULO EXEMPLO TEXTO AJUDA</h3>
+            <p>CONTENDO TEXTO AJUDA</p>
+        </div>
+
+    </div>
+
+    <script>
+
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                exibirtextoAjuda: false
+            },
+            methods: {}
+        })
+
+    </script>
+
+</body>
+
+</html>
