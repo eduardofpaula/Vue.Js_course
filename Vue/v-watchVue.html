@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>V-watch</title>
+
+</head>
+
+<body>
+
+    <div id="app">
+        <span>Paciente:</span><input type="text" v-model="paciente">
+        <br>
+        <ul>
+            <li v-for="p in lista">{{p.nome}}, {{p.idade}}</li>
+        </ul> 
+        
+    </div>
+
+    <script>
+
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                paciente:'',
+                pacientes: [
+                    {nome: 'Jorge Santana', idade: 32},
+                    {nome: 'João Lamão', idade: 19},
+                    {nome: 'José Augusto', idade: 30},
+                    {nome: 'Júnior Silva', idade: 42},
+                    {nome: 'Julho Nogueira', idade: 20}
+                ],
+                lista: []
+            },
+            methods: {},
+            computed: {},
+            watch: {
+                paciente(newValor) { // o nome dos metodos watch tem que ser o mesmo do atributo
+                    console.log(newValor)
+                    this.lista = this.pacientes.filter(p => p.nome.match(newValor))
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
