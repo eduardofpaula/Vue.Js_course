@@ -1,0 +1,37 @@
+Diretivas do Vue.js
+
+v-bind (:) - Diretiva que permite a ligação de atributos HTML a propriedades do Vue.js.
+
+exemplo de uso: `<img v-bind:src="urlImagem">`
+
+v-on (@) - Diretiva que permite a ligação de eventos HTML a métodos do Vue.js.
+
+exemplo de uso: `<button v-on:click="metodo">Clique</button>`
+
+v-model - Diretiva que permite a ligação de elementos de formulário a propriedades do Vue.js.
+
+exemplo de uso: `<input v-model="nome">`
+
+v-for - Diretiva que permite a iteração de uma lista de elementos.
+
+exemplo de uso: `<li v-for="item in lista">{{ item }}</li>`
+
+v-if - Diretiva que exibe ou esconde um elemento baseado em uma expressão.
+
+exemplo de uso: `<div v-if="mostrar">Conteúdo</div>`
+
+v-else - Diretiva que exibe um elemento se a expressão do v-if for falsa.
+
+exemplo de uso: `<div v-if="mostrar">Conteúdo</div><div v-else>Conteúdo Alternativo</div>`
+
+v-else-if - Diretiva que exibe um elemento se a expressão do v-if for falsa e a expressão do v-else-if for verdadeira.
+
+exemplo de uso: `<div v-if="mostrar">Conteúdo</div><div v-else-if="mostrar2">Conteúdo Alternativo</div>`
+
+v-watcher (v-watch) - Diretiva que permite observar mudanças em propriedades do Vue.js e executar uma função callback quando a propriedade mudar.
+
+exemplo de uso: `<input v-model="nome" v-watch="{nome: function(novoValor, valorAntigo) { console.log('nome mudou de', valorAntigo, 'para', novoValor); }}">`
+
+v-show - Diretiva que exibe ou esconde um elemento baseado em uma expressão.
+
+exemplo de uso: `<div v-show="mostrar">Conteúdo</div>`
